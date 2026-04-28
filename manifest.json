@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Leetcode-Help",
+  "version": "1.0",
+  "description": "Displays company tags for LeetCode problems.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://leetcode.com/problems/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data.json", "resources/icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

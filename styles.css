@@ -1,0 +1,113 @@
+/* Container and Button stay similar */
+.lh-floating-container {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  z-index: 99999;
+}
+
+.lh-main-btn {
+  width: 50px;
+  height: 50px;
+  background: #f0edea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Create the hover label using the data-tooltip attribute */
+.lh-main-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 60px; /* Positions it to the left of the button */
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
+  pointer-events: none;
+}
+
+/* Show the label on hover */
+.lh-main-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Optional: Add a small triangle 'arrow' to the label */
+.lh-main-btn::before {
+  content: "";
+  position: absolute;
+  right: 55px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.lh-main-btn:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tooltip - Hidden by default */
+.lh-tooltip {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  width: 240px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.lh-tooltip.lh-show {
+  display: flex;
+}
+
+/* Search Bar */
+.lh-search-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.lh-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.lh-company-item {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #fafafa;
+}
+
+.lh-no-match {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
